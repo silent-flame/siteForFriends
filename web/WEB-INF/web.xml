@@ -8,21 +8,36 @@
             index.html
         </welcome-file>
     </welcome-file-list>
-
+    <!--Шутливый сервлет-->
     <servlet>
         <servlet-name>MyServlet</servlet-name>
         <servlet-class>ru.mysite.web.servlets.MyKiddingServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Chat</servlet-name>
-        <servlet-class>ru.mysite.web.servlets.Chat</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
         <url-pattern>/takeThePhone</url-pattern>
     </servlet-mapping>
+
+    <!--Проверка существования логина и добавление пользователя-->
+    <servlet>
+        <servlet-name>UserHandler</servlet-name>
+        <servlet-class>ru.mysite.web.servlets.UserHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserHandler</servlet-name>
+        <url-pattern>/userhandler</url-pattern>
+    </servlet-mapping>
+
+
+    <!--Чат-->
+    <servlet>
+        <servlet-name>Chat</servlet-name>
+        <servlet-class>ru.mysite.web.servlets.ChattingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Chat</servlet-name>
-        <url-pattern>/chat</url-pattern>
+        <url-pattern>/chatting</url-pattern>
     </servlet-mapping>
+
+
 </web-app>

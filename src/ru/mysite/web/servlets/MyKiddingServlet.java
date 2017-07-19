@@ -15,7 +15,7 @@ public class MyKiddingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("windows-1251");
-        PrintWriter pr=resp.getWriter();
+        PrintWriter pr = resp.getWriter();
         pr.write("<!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
@@ -33,6 +33,7 @@ public class MyKiddingServlet extends HttpServlet {
                 "      <input type=\"reset\" value=\"Сброс\">" +
                 "    </form>" +
                 "</div>" +
+                "<a href="+UserHandler.domainAddress+">На главную</a>" +
                 "</td></tr>" +
                 "</table>" +
                 "</body>" +
