@@ -1,4 +1,4 @@
-package ru.mysite.web.servlets;
+package ru.mysite.web.servlets.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +33,7 @@ public class MyKiddingServlet extends HttpServlet {
                 "      <input type=\"reset\" value=\"Сброс\">" +
                 "    </form>" +
                 "</div>" +
-                "<a href="+UserHandler.domainAddress+">На главную</a>" +
+                "<a href="+ AuthorizationServlet.domainAddress+">На главную</a>" +
                 "</td></tr>" +
                 "</table>" +
                 "</body>" +

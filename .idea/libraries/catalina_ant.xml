@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="catalina-ant">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/localtest/apache-tomcat-9.0.0.M21/lib/catalina-ant.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

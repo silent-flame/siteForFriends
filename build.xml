@@ -2,12 +2,18 @@
 <project name="antbuild">
 
 
+
     <path id="common_library">
         <pathelement location="localtest/apache-tomcat-9.0.0.M21/lib/servlet-api.jar"/>
     </path>
+    <!--<path id="jstl">
+        <pathelement location="web/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar"/>
+    </path>-->
+
 
     <target name="clean">
         <delete dir="web/WEB-INF/classes/ru"/>
+        <delete dir="localtest/apache-tomcat-9.0.0.M21/work/Catalina/localhost/ROOT/org/apache/jsp"/>
     </target>
 
     <target name="compile" depends="clean">
@@ -15,5 +21,6 @@
             <classpath refid="common_library"/>
         </javac>
     </target>
+
 
 </project>

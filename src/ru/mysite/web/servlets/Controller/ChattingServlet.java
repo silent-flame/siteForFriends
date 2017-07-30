@@ -1,4 +1,4 @@
-package ru.mysite.web.servlets;
+package ru.mysite.web.servlets.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,49 +28,30 @@ public class ChattingServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-
-
+        resp.setIntHeader("Refresh", 5);
         PrintWriter pr = resp.getWriter();
-        login = UserHandler.getLogin(req);
+        login = AuthorizationServlet.getLogin(req);
+
+
         pr.write("<!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
-                "  <meta charset='UTF-8'>" +
+                "  <meta charset='UTF-8' content='text/html' >" +
                 "  <title>Chat</title>" +
+                "    <link rel=\"stylesheet\" href=\"style.css\""+
                 "</head>" +
                 "<body>");
-        pr.write("<table border='5' width='100%' cellspacing='0' cellpadding='0'>" +
-                "    <tr>" +
-                "      <td width='15%'>" + login + "</td>" +
-                "    <td>" +
-                "          <table border='2' width='100%' cellspacing='0' cellpadding='4'>" +
-                "              <tr>" +
-                "                 <td>");
 
 
 //                "                    Просмотр сообщений" +
         {
             int intNumberOfMessages = numberOfMessages.get();
             for (int i = 0; i < intNumberOfMessages; i++) {
-                pr.write(messages.get(i) + "<br>");
+                pr.write(messages.get(i) + "<br> ");
             }
         }
 
 
-        pr.write("                 </td>" +
-                "                 </tr>" +
-                "                 <tr>" +
-                "                 <td>" +
-                "                     <form action='chatting' method='post'>" +
-                "                         <input type='text' name='message' size='40'>" +
-                "                         <input type='submit' value='Send'>" +
-                "                     </form>" +
-                "                 </td>" +
-                "              </tr>" +
-                "          </table>" +
-                "    </td>" +
-                "    </tr>" +
-                "    </table>");
         pr.write("</body>" +
                 "</html>");
         pr.flush();
@@ -81,12 +62,11 @@ public class ChattingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        login = UserHandler.getLogin(req);
+        login = AuthorizationServlet.getLogin(req);
         String message = req.getParameter("message");
         numberOfMessages.getAndIncrement();
-        messages.add("<b>" + login + "</b> : " + message);
-        doGet(req, resp);
+        messages.add("<b class='nickname'>" + login + "</b> : " + message);
+        resp.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+        resp.setHeader("Location","chatting.jsp");
     }
-
-
 }

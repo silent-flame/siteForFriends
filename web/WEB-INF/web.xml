@@ -10,34 +10,35 @@
     </welcome-file-list>
     <!--Шутливый сервлет-->
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>ru.mysite.web.servlets.MyKiddingServlet</servlet-class>
+        <servlet-name>KiddingServlet</servlet-name>
+        <servlet-class>ru.mysite.web.servlets.Controller.MyKiddingServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>KiddingServlet</servlet-name>
         <url-pattern>/takeThePhone</url-pattern>
     </servlet-mapping>
 
-    <!--Проверка существования логина и добавление пользователя-->
+    <!--Авторизация пользователя-->
     <servlet>
-        <servlet-name>UserHandler</servlet-name>
-        <servlet-class>ru.mysite.web.servlets.UserHandler</servlet-class>
+        <servlet-name>Authorization</servlet-name>
+        <servlet-class>ru.mysite.web.servlets.Controller.AuthorizationServlet  </servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserHandler</servlet-name>
-        <url-pattern>/userhandler</url-pattern>
+        <servlet-name>Authorization</servlet-name>
+        <url-pattern>/authorization</url-pattern>
     </servlet-mapping>
 
 
     <!--Чат-->
     <servlet>
         <servlet-name>Chat</servlet-name>
-        <servlet-class>ru.mysite.web.servlets.ChattingServlet</servlet-class>
+        <servlet-class>ru.mysite.web.servlets.Controller.ChattingServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Chat</servlet-name>
         <url-pattern>/chatting</url-pattern>
     </servlet-mapping>
+
 
 
 </web-app>
